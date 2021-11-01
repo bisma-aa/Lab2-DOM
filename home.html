@@ -3,50 +3,58 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Bear and Bee Game</title>
-    <link rel="stylesheet" type="text/css" href="css.css" media="all" />
+    <title>JavaScript and DOM API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css.css">
     <script src="game.js"></script>
-    <noscript>
-     Warning - JavaScript is Disabled.
-    For full functionality of this page, it is necessary to enable JavaScript.
+    <noscript> 
+        Warning - JavaScript is Disabled. 
+        For full functionality of this page, it is necessary to enable JavaScript. 
     </noscript>
     <script>
         var bear;
         var bees;
-        var updateTimer= null;
-        var hitTimer = null;
-        var startTime;
+        var updateTimer;
         var lastStingTime;
-        </script>
+        var started = false;
+    </script>
+</head>
 
-    <body onload="start();">
+<body>
 
-        <div id="title">
-            <h1>Help the bear escape the bees !</h1>
-            <p>Bear tries to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
-            <p>You can adjust bees' speed <input type="text" id="speedBees" value="50" size="3"> px/ms
-                <br> and the refresh period <input type="text" id="periodTimer" value="10" size="3"> ms </p>
-            <h2>Press left, right, up, down keys to move the bear</h2>
+    <!--Contains the game rules and the buttons-->
+    <div id="title">
+        <h1>Help the bear escape the bees !</h1>
+        <p>Bear tries to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
+        <p>You can ajust bees' speed <input type="text" id="speedBees" value="50" size="3"> or the bear's speed <input type="text" id="speedBear" value="100" size="3"> px/ms
+            <br> and the refresh period <input type="text" id="periodTimer" value="10" size="3"> ms </p>
+        <h2>Press left, right, up, down keys to move the bear</h2>
+        <button onclick="start();">Start</button>
+        <button onclick="restart();">Restart</button>
+        <button onclick="addBee();">Add Bee</button>
+    </div>
 
-        </div>
-        <div id="scores">
-            <table>
-                <tr>
-                    <td>
-                        <p>Stings: [<span id="hits">0</span>]</p>
-                    </td>
-                    <td>
-                        <p>Best duration: [<span id="duration">?</span>]</p>
-                    </td>
-                </tr>
-            </table>
+    <!--Shows the number of stings and the best duration as well-->
+    <div id="scores">
+        <table>
+            <tr>
+                <td>
+                    <p>Stings: [<span id="hits">0</span>]</p>
+                </td>
+                <td>
+                    <p>Best duration: [<span id="duration">?</span>]</p>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-        </div>
-        <div id="board">
-            <img src="https://raw.githubusercontent.com/hbatatia/lab02-dom-resources/main/images/bear.gif" id="bear" alt="bear">
-            <img src="https://raw.githubusercontent.com/hbatatia/lab02-dom-resources/main/images/bee.gif" id="bees" alt="bees">
-        </div>
-    </body>
+    <!--loaction of the bees and bear-->
+    <div id="board">
+        <img src="./images/bear.gif" id="bear" alt="bear">
+    </div>
+    <script>
+        var bear;
+    </script>
+</body>
 
 </html>
